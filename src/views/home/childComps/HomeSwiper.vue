@@ -1,12 +1,12 @@
 <template>
-    <Swiper>
+    <swiper>
       <!-- 轮播图的使用 -->
       <swiper-item v-for="item in banners" :key="item.link">
         <a :href="item.link">
-          <img :src="item.image" :title="item.title" alt="" />
+          <img :src="item.image" :title="item.title" alt="" @load="imgLoad"/>
         </a>
       </swiper-item>
-    </Swiper>
+    </swiper>
 </template>
 
 <script>
@@ -16,6 +16,11 @@ export default {
     Swiper,
     SwiperItem,
   },
+  data() {
+    return {
+      isLoad:false
+    }
+  },
   props: {
     banners: {
       type: Array,
@@ -24,6 +29,15 @@ export default {
       },
     },
   },
+  methods:{
+    imgLoad() {
+      if(!this.isLoad)
+      {
+      this.$emit('swiperImgLoad')
+      this.isLoad = true
+      }
+    }
+  }
 };
 </script>
 

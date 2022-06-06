@@ -26,7 +26,7 @@ export default {
 		bottom: 0;
 
 		box-shadow: 0 5px 10px rgb(0, 0, 0);
-		z-index: 999;
+		z-index: 9;
   }
   
 </style>
