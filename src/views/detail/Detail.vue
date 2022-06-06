@@ -156,19 +156,19 @@ export default {
       //1.获取y值
       const positionY = -position.y
       //2.positionY和主题中的值做对比
-      // for(let i = 0; i <= this.themeOfftop.length; i++) {
-      //   if(this.currentIndex !== i && ((i < this.themeOfftop.length -1 && positionY > this.themeOfftop[i] && positionY < this.themeOfftop[i+1]) || 
-      //       ((i === this.themeOfftop.length -1) && positionY >= this.themeOfftop[i]))) {
-      //     this.currentIndex = i;
-      //     this.$refs.nav.currentIndex = this.currentIndex
-      //   }
-      // }
-      for(let i = this.themeOfftop.length - 1; i >= 0;i--) {
-        if(positionY > this.themeOfftop[i]) {
-            this.$refs.nav.currentIndex = i
-            break;
+      for(let i = 0; i <= this.themeOfftop.length; i++) {
+        if(this.currentIndex !== i && ((i < this.themeOfftop.length -1 && positionY > this.themeOfftop[i] && positionY < this.themeOfftop[i+1]) || 
+            ((i === this.themeOfftop.length -1) && positionY >= this.themeOfftop[i]))) {
+          this.currentIndex = i;
+          this.$refs.nav.currentIndex = this.currentIndex
         }
       }
+      // for(let i = this.themeOfftop.length - 1; i >= 0;i--) {
+      //   if(positionY > this.themeOfftop[i]) {
+      //       this.$refs.nav.currentIndex = i
+      //       break;
+      //   }
+      // }
       this.isShowBackTop = (-position.y) > 1000
     }
   },
